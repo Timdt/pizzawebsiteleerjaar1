@@ -1,0 +1,116 @@
+body{
+  background-image:url("images/background.jpg");
+}
+
+
+
+#headermain {
+  border:solid black 2px;;
+  width:100%;
+  height:212px;
+  padding:0px;
+  background-image:url("images/header2.jpg");
+}
+
+#header-logo{
+  width:380px;
+  height:200px;
+  float:left;
+  background-image: url("images/sopranos.png");
+  display: block;
+  position: absolute;
+}
+
+#navbar {
+  width:100%;
+  height:50px;
+  border:;
+
+}
+
+
+.navbaritems{
+  background-color:rgb(237, 28, 36);
+  text-transform: uppercase;
+  color: white;
+  float:right;
+  margin-right: 2px;
+  display: block;
+  margin-top:170px;
+}
+
+.navtext {
+  text-align: center;
+  text-transform: uppercase;
+  color:white;
+  background-color:#ed1c24;
+  font-size: 20px;
+}
+
+
+#selectie{
+  width: 1500px;
+  height:100%;
+  margin: 0 auto;
+  border:solid pink 4px;
+  background-color: red;
+}
+#wrapper-selecte{
+  width:100%;
+  margin:0 auto;
+  height:300px;
+  /*border:solid white 4px;*/
+  margin-left: 20px;
+}
+
+
+.plaatje{
+  float:left;
+  margin:5px;
+  width:23%;
+
+}
+
+
+#slider{
+  margin-top:60px;
+  margin-bottom:50px;
+}
+
+#slidertext{
+  color:white;
+  margin:-10px;
+  margin-left:10px;
+
+}
+body { padding-top: 0px; }
+#myCarousel .nav a small {
+    display:block;
+}
+#myCarousel .nav {
+    background:#eee;
+}
+#myCarousel .nav a {
+    border-radius:0px;
+}
+.nav-pills > li > a { border-radius: 0; }
+
+#sidebar{
+  position:static;
+  right:200px;
+  top:100px;
+  border:0px;
+      float:right;
+      border: 2px solid #003B62;
+      font-family: verdana;
+      background-color: #B5CFE0;
+      padding-left: 10px;
+}
+
+#Menu-table {
+width:500px;
+height:500px;
+border:solid white 2px;
+margin:0 auto;
+
+}

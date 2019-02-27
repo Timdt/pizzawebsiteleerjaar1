@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+<title>Pizza Soprano</title>
+<meta charset="utf-8">
+<style>
+#container {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+	border: solid 1px #444;
+	padding: 10px;
+	background-color: rgba(203,169,135, 0.4);
+	border-radius: 5px;
+	background-image:url("images/background.jpg");
+}
+
+.pizza {
+	width: 80%;
+	padding: 10px;
+	height: 120px;
+	border: solid 1px red;
+	border-radius: 10px;
+	background-color: white;
+	margin: 0 auto;
+	margin-bottom: 2cm;
+}
+
+.pizza h4 {
+	margin: 0 0 10px 0;
+}
+
+
+#headermain {
+  border:solid black 2px;;
+  width:100%;
+  height:212px;
+  padding:0px;
+  background-image:url("images/header2.jpg");
+}
+
+#header-logo{
+  width:380px;
+  height:200px;
+  float:left;
+  background-image: url("images/sopranos.png");
+  display: block;
+  position: absolute;
+}
+
+#navbar {
+  width:100%;
+  height:50px;
+  border:;
+
+}
+
+/*hier begint de header style*/
+
+body{
+  background-image:url("images/background.jpg");
+}
+
+.navbaritems{
+  background-color:rgb(237, 28, 36);
+  text-transform: uppercase;
+  color: white;
+  float:right;
+  margin-right: 2px;
+  display: block;
+  margin-top:170px;
+}
+
+.navtext {
+  text-align: center;
+  text-transform: uppercase;
+  color:white;
+  background-color:#ed1c24;
+  font-size: 20px;
+}
+
+/* hier eindigd de header style */
+
+
+
+</style>
+<script>
+var winkelwagen = [];
+
+function getCheckedValue( hetAantalVeld, groupName ) {
+	var deData = Array(groupName, document.getElementById(hetAantalVeld).value, 0);
+	aantalInWinkelwagen = winkelwagen.length;
+
+  var radios = document.getElementsByName( groupName );	// verwijs naar de radiobuttons van 1 pizza!
+  for( i = 0; i < radios.length; i++ ) {								// doorloop de radio's
+		if( radios[i].checked ) {														// en voeg degene die geCHECKED is
+			deData[2] = radios[i].value;											// toe op positie 2 van het array deData
+    }
+  }
+
+	if(localStorage.wagen != undefined)
+		localStorage.wagen = localStorage.wagen + "<table width='300' border='1'><tr><td>"+deData[0]+"</td><td>"+deData[1]+"</td><td>"+deData[2]+"</td><td>"+deData[3]+"</td></tr></table>";
+	else
+		localStorage.wagen = "<table width='300' border='1'><tr><td>"+deData[0]+"</td><td>"+deData[1]+"</td><td>"+deData[2]+"</td><td>"+deData[3]+"</td></tr></table>";
+
+}
+
+function toonWagen() {
+
+	 document.getElementById("bon").innerHTML = localStorage.wagen != undefined ? localStorage.wagen : "De winkelwagen is leeg";
+}
+
+function wisWagen() {
+	if(localStorage.wagen != undefined) {
+		localStorage.removeItem("wagen");	// maak het wagentje weer leeg
+	}
+	document.getElementById("bon").innerHTML = "De winkelwagen is leeg";
+}
+</script>
+</head>
+<body>
+	<div id="headermain">
+	<div id="header-logo">
+	</div>
+	  <div id="navbar">
+	    <div class="navbaritems">
+	    <a href="index.html"> <button class="navtext"type="button" name="button">Home</button> </a>
+	    </div>
+
+	<div class="navbaritems">
+	  <a href="menu.html">  <button class="navtext"type="button" name="button">menu</button></a>
+	  </div>
+
+
+	    <div class="navbaritems">
+
+	  <!-- even verborgen omdat hij nog geen functie heeft
+		  <button class="navtext"type="button" name="button">bestellen</button>
+		-->
+
+	    </div>
+	  </div>
+
+	</div>
+<div id="container">
+
+	<div class="pizza"><form action="" method="post">
+		<h4>Pizza Al Fromaggio</h4>
+		<table>
+		<tr valign="top">
+			<td>		<img align="left" src="http://lorempixel.com/130/90/food">  </td>
+			<td>Afmeting<br>
+					<input type="radio" name="fromaggio" checked value="25cm"> 25 centimeter<br>
+					<input type="radio" name="fromaggio" value="35cm"> 35 centimeter<br>
+					<input type="radio" name="fromaggio" value="cal"> Calzone (dubbelgevouwen)
+			</td>
+			<td>
+				Aantal <br><input type="text" size="4" value="1" id="fro">
+			</td>
+			<td><br>
+				<button onclick="getCheckedValue('fro', 'fromaggio')">Bestel deze pizza</button>
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div> <!-- einde pizza al frommagio -->
+
+	<div class="pizza"><form action="" method="post">
+		<h4>Pizza Al Tonno</h4>
+		<table>
+		<tr valign="top">
+			<td>		<img align="left" src="http://lorempixel.com/130/90/cats">  </td>
+			<td>Afmeting<br>
+					<input type="radio" name="tonno" checked value="25cm"> 25 centimeter<br>
+					<input type="radio" name="tonno" value="35cm"> 35 centimeter<br>
+					<input type="radio" name="tonno" value="cal"> Calzone (dubbelgevouwen)
+			</td>
+			<td>
+				Aantal <br><input type="text" size="4" value="1" id="tonn">
+			</td>
+			<td><br>
+				<button onclick="getCheckedValue('tonn', 'tonno')">Bestel deze pizza</button>
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div> <!-- einde pizza al tonno -->
+
+	<div class="pizza"><form action="" method="post">
+		<h4>Pizza Margerita</h4>
+		<table>
+		<tr valign="top">
+			<td>		<img align="left" src="http://lorempixel.com/130/90/nature">  </td>
+			<td>Afmeting<br>
+					<input type="radio" name="margerita" checked value="25cm"> 25 centimeter<br>
+					<input type="radio" name="margerita" value="35cm"> 35 centimeter<br>
+					<input type="radio" name="margerita" value="cal"> Calzone (dubbelgevouwen)
+			</td>
+			<td>
+				Aantal <br><input type="text" size="4" value="1" id="marg">
+			</td>
+			<td><br>
+				<button onclick="getCheckedValue('marg', 'margerita')">Bestel deze pizza</button>
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div> <!-- einde pizza margerita -->
+
+	<div class="pizza"><form action="" method="post">
+		<h4>Pizza Vegetarisch</h4>
+		<table>
+		<tr valign="top">
+			<td>		<img align="left" src="http://lorempixel.com/130/90/nature">  </td>
+			<td>Afmeting<br>
+					<input type="radio" name="vegetarisch" checked value="25cm"> 25 centimeter<br>
+					<input type="radio" name="vegetarisch" value="35cm"> 35 centimeter<br>
+					<input type="radio" name="vegetarisch" value="cal"> Calzone (dubbelgevouwen)
+			</td>
+			<td>
+				Aantal <br><input type="text" size="4" value="1" id="vege">
+			</td>
+			<td><br>
+				<button onclick="getCheckedValue('vege', 'vegetarisch')">Bestel deze pizza</button>
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div>
+
+	<button onclick="toonWagen()">toon Wagen</button> | <button onclick="wisWagen()">nieuwe Wagen</button>
+
+	<div id="bon"></div>
+
+	</div> <!-- einde container -->
+
+</body>
+</html>
